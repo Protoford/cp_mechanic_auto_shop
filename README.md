@@ -2,6 +2,7 @@
 FiveM GTAV ES Engine Repair Shop
 -- Based on es_carwash by 'EssentialMode 5 CarWash by TheSpartaPT.' --
 # FiveM [EssentialMode] Mechanic Shop
+Pull in to one of several Mechanic locations on the map, drive in, hit enter to repair auto engine damage.
 
 ### Optional Dependencies
 
