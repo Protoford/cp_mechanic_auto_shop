@@ -64,12 +64,12 @@ Citizen.CreateThread(function ()
 
 	while true do
 		Citizen.Wait(0)
-		if IsPedSittingInAnyVehicle(GetPlayerPed(-1)) then 
+		if IsPedSittingInAnyVehicle(PlayerPedId()) then 
 			for i = 1, #vehicleRepairStation do
 				garageCoords2 = vehicleRepairStation[i]
-				if GetDistanceBetweenCoords(GetEntityCoords(GetPlayerPed(-1)), garageCoords2[1], garageCoords2[2], garageCoords2[3], true ) < 20 then
+				if GetDistanceBetweenCoords(GetEntityCoords(PlayerPedId()), garageCoords2[1], garageCoords2[2], garageCoords2[3], true ) < 20 then
 					DrawMarker(1, garageCoords2[1], garageCoords2[2], garageCoords2[3], 0, 0, 0, 0, 0, 0, 5.0, 5.0, 2.0, 158, 0, 0, 155, 0, 0, 2, 0, 0, 0, 0)
-					if GetDistanceBetweenCoords(GetEntityCoords(GetPlayerPed(-1)), garageCoords2[1], garageCoords2[2], garageCoords2[3], true ) < 5 then
+					if GetDistanceBetweenCoords(GetEntityCoords(PlayerPedId()), garageCoords2[1], garageCoords2[2], garageCoords2[3], true ) < 5 then
 						cp_mechanic_DrawSubtitleTimed("Press [~g~ENTER~s~] to repair your vehicle!")
 						if IsControlJustPressed(1, Key) then
 							TriggerServerEvent('cp_mechanic:checkmoney')
@@ -83,7 +83,7 @@ end)
 
 RegisterNetEvent('cp_mechanic:success')
 AddEventHandler('cp_mechanic:success', function (price)
-	player = GetPlayerPed(-1)
+	player = PlayerPedId()
 	playerVehicle = GetVehiclePedIsUsing(player)
 	SetVehicleEngineHealth(playerVehicle, 1000.0)
 --	SetVehicleBodyHealth(playerVehicle, 1000.0)
@@ -102,7 +102,7 @@ end)
 
 RegisterNetEvent('cp_mechanic:free')
 AddEventHandler('cp_mechanic:free', function ()
-	player = GetPlayerPed(-1)
+	player = PlayerPedId()
 	playerVehicle = GetVehiclePedIsUsing(player)
 	SetVehicleEngineHealth(playerVehicle, 1000.0)
 --	SetVehicleBodyHealth(playerVehicle, 1000.0)
